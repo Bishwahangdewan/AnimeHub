@@ -53,6 +53,14 @@ body{
     grid-template-columns: auto auto auto;
 }
 
+.four-columns{
+    grid-template-columns: auto auto auto auto;
+}
+
+.five-columns{
+    grid-template-columns: auto auto auto auto auto;
+}
+
 .flex{
     display:flex;
 }
@@ -188,6 +196,14 @@ nav ul li .nav-links:hover{
     transition:0.3s;
 }
 
+.genre-anime-card{
+    border-radius: 5px;
+    height:380px;
+    margin-right:30px;
+    margin-top: 40px;
+    width:220px;
+}   
+
 .anime-card:hover{
     background-color: #031e35;
 }
@@ -196,6 +212,36 @@ nav ul li .nav-links:hover{
     width:180px;
     height:100%;
 }
+
+.genre-anime-card img{
+    width:100%;
+    height:300px;
+    border:1px solid #666;
+}
+
+.genre-content .to-single-anime{
+    display:block;
+    text-decoration:none;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition:0.3s;
+}
+
+.genre-content .to-single-anime:hover{
+    color: #fae740;
+}
+
+.genre-anime ul{
+    list-style-type: none;
+}
+
+.genre-anime ul a{
+    text-decoration: none;
+}
+
 
 .anime-card .content{
      padding-left:30px;
@@ -251,11 +297,11 @@ nav ul li .nav-links:hover{
     background:url('../img/boku.gif');
 }
 
-.seasonal-container{
+.anime-genre-container{
     background: url('../img/season.gif');
 }
 
-.topanime-container , .seasonarchive-container , .schedule-container , .seasonal-container{
+.topanime-container , .seasonarchive-container , .schedule-container , .anime-genre-container{
     background-repeat: no-repeat;
     height:120vh;
     background-size: contain;
@@ -263,19 +309,20 @@ nav ul li .nav-links:hover{
 
 
 
-.topanime-container > div , .seasonarchive-container > div { 
+.topanime-container > div , .seasonarchive-container > div , .schedule-container > div ,  .anime-genre-container > div{ 
     padding-top:18%;
 }
 
 .topanime-container > div > h1 , .topanime-container > div > h1 >span ,.seasonarchive-container > div > h1 ,
-.seasonarchive-container > div > h1 > span{
+.seasonarchive-container > div > h1 > span , .schedule-container > div > h1 , .schedule-container > div > h1 > span ,
+.anime-genre-container > div > h1 , .anime-genre-container > div > h1 > span{
     font-size: 120px;
     font-weight: 900;
     text-shadow: 4px 4px 8px #333;
     padding-bottom:35px;
 }
 
-.topanime-container > div > p , .seasonarchive-container > div > p{
+.topanime-container > div > p , .seasonarchive-container > div > p, .schedule-container > div > p , .anime-genre-container > div > p  {
     font-size: 25px;
     padding-left:10px;
 }
@@ -333,6 +380,19 @@ nav ul li .nav-links:hover{
     100% { transform: rotate(360deg); }
   }
 
+  /*-----------------SCHEDULE---------------------*/
+  .schedule ul{
+      display:flex;
+      list-style-type: none;
+  }
+
+  .schedule ul li{
+      padding-right:20px;
+      font-size: 20px;
+      font-weight:800;
+      cursor:pointer;
+  }
+
   /*----------------SEARCH ANIME----------------*/
   .search-container{
       margin-top:70px;
@@ -340,6 +400,81 @@ nav ul li .nav-links:hover{
 
   .search-header{
       font-size: 25px;
+  }
+
+  /*-----------------GENRE----------------------*/
+  .genre h1 , .genre h1 span{
+      font-size: 50px;
+      font-weight: 800;
+  }
+
+  .genre p{
+      width:50%;
+      margin-top:20px;
+      line-height:1.8;
+  }
+
+  .genre table{
+      margin-top:20px;
+  }
+
+  .genre table th{
+      padding-bottom: 10px;
+  }
+
+  .genre table td{
+      text-align: center;
+      padding:10px 40px;
+      background:#031e35;
+      border:none;
+  }
+
+  .genre .anime-genre-link{
+      cursor:pointer;
+      text-decoration: none;
+  }
+
+  .genre .anime-genre-link:hover{
+      color:#f0d90f;
+  }
+
+  .genre-anime{
+      margin-top:50px;
+  }
+
+  .anime{
+      margin-top:10%;
+  }
+
+  .anime img{
+      border:2px solid #666;
+  }
+  
+  .anime h1{
+      font-size: 50px;
+      font-weight:800;
+      padding:0 50px;
+      margin-bottom:35px;
+  }
+
+  .anime h2{
+      font-size:30px;
+      margin-top:40px;
+      margin-bottom:20px;
+  }
+
+  .anime h3{
+    padding:0 50px;
+    margin-bottom:20px;
+  }
+
+  .anime h3 span{
+      font-weight:400;
+  }
+
+  .anime p{
+      line-height:1.6;
+      font-size: 20px;
   }
 
 /*---------------------FOOTER CONTAINER -------------------*/

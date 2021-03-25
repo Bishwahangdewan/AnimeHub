@@ -1,31 +1,39 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function HorizontalDisplay(props) {
+const mapStateToProps = state => {
+    return {
+        anime: state.anime
+    }
+}
+
+function ShowGenre(props) {
     const [currentPage, setCurrentPage] = useState(1);
-    const [animePerPage, setAnimePerPage] = useState(props.perPage);
+    const [animePerPage, setAnimePerPage] = useState(20);
+    const { genreName, anime } = props.anime.getGenre;
 
     let indexOfLastAnime = currentPage * animePerPage;
     let indexOfFirstAnime = indexOfLastAnime - animePerPage;
 
-    let currentAnime = props.data.slice(indexOfFirstAnime, indexOfLastAnime);
+    let currentAnime = anime.slice(indexOfFirstAnime, indexOfLastAnime);
 
     let renderAnime = null;
     let renderPage = null;
 
-    const pageNumbers = [];
-
-    for (let i = 1; i <= Math.ceil(props.data.length / animePerPage); i++) {
-        pageNumbers.push(i);
-    }
+    const pageNumber = [];
 
     const changeAnime = (num) => {
         setCurrentPage(num);
     }
 
+    for (let i = 1; i <= anime.length / animePerPage; i++) {
+        pageNumber.push(i);
+    }
+
     renderPage = (
         <ul className="flex pagination">
-            {pageNumbers.map(number => {
+            {pageNumber.map(number => {
                 return (
                     <a href="#Top"><li key={number} id={number} className={number === currentPage ? 'active' : null} onClick={() => changeAnime(number)}>{number}</li></a>
                 )
@@ -34,19 +42,16 @@ function HorizontalDisplay(props) {
     )
 
     renderAnime = (
-        <div className="grid three-columns space-between anime-card-container">
+        <div className="grid five-columns space-between anime-card-container">
             {
                 currentAnime.map(anime => {
                     return (
-                        <div key={anime.mal_id} className="anime-card flex">
+                        <div key={anime.mal_id} className="genre-anime-card">
                             <div className="image-container">
-                                <img src={anime.image_url} alt="anime" />
+                                <img src={anime.image_url} />
                             </div>
-                            <div className="content">
+                            <div class="genre-content">
                                 <Link to={{ pathname: '/anime', state: { data: anime } }} className="to-single-anime">{anime.title}</Link>
-                                <p>Airing Date : {anime.start_date ? anime.start_date : "Not Yet Released"}</p>
-                                <p>Rank : {anime.rank}</p>
-                                <p>Type : {anime.type}</p>
                             </div>
                         </div>
                     )
@@ -55,13 +60,15 @@ function HorizontalDisplay(props) {
         </div >
     )
 
+
     return (
-        <div id="Top" className="horizontal-display-container">
-            <h2 className="section-display-header">{props.head}</h2>
-            {renderAnime}
-            {renderPage}
+        <div className="genre-anime">
+            {anime.length > 2 ? <div> <h1>Showing Results for {genreName}</h1>
+                {renderAnime}
+                {renderPage}</div> : ''}
+
         </div>
     )
 }
 
-export default HorizontalDisplay;
+export default connect(mapStateToProps)(ShowGenre)

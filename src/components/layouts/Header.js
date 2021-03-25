@@ -17,7 +17,7 @@ function Header() {
                             <li><Link className={location.pathname === '/topAnime' ? yellow : navlink} to="/topAnime">Top Anime</Link></li>
                             <li><Link className={location.pathname === '/seasonArchive' ? yellow : navlink} to="/seasonArchive">Season Archive</Link></li>
                             <li><Link className={location.pathname === '/schedule' ? yellow : navlink} to="/schedule">Schedule</Link></li>
-                            <li><Link className={location.pathname === '/seasonalAnime' ? yellow : navlink} to="/seasonalAnime">Seasonal Anime</Link></li>
+                            <li><Link className={location.pathname === '/animeGenre' ? yellow : navlink} to="/animeGenre">Anime Genre</Link></li>
                         </ul>
 
                     </nav>

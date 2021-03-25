@@ -7,6 +7,7 @@ const mapStateToProps = state => {
 }
 
 function TopAnime(props) {
+    console.log(props.anime)
     return (
         <div>
             <div className="topanime-container">

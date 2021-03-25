@@ -10,13 +10,13 @@ function HomeDisplay(props) {
             <div className="fixer"></div>
             <div className="container flex space-between">
                 <div className="content">
-                    <Link to="/" className="anime-main-title yellow">{title}</Link>
+                    <Link to={{ pathname: '/anime', state: { data: props.data } }} className="anime-main-title yellow">{title}</Link>
                     <p>Date Aired / To be aired : {start_date}</p>
                     <p>Type : {type}</p>
                     <p>My Anime List Rank : {rank}</p>
                     <a href={url} className="btn1">Visit My Anime List</a>
                 </div>
-                <img src={image_url} alt="Anime - Image recommended" />
+                <img src={image_url} alt="Anime recommended" />
             </div>
 
         </div>
